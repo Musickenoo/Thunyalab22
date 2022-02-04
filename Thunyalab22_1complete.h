@@ -22,15 +22,14 @@ class Unit{
 		int beAttacked(int);
 		int heal();	
 		void guard();
-		bool isDead();
-		int showhp();
+		bool isDead();	
 };
 
 void Unit::create(string t){ 
 	if(t == "Hero"){
 		type = "Hero";
 		cout << "Please input your name: ";
-		name = "poom";
+		getline(cin,name);
 		hpmax = rand()%20+90;
 		atk = rand()%5+14;
 		def = rand()%3+9;
@@ -64,6 +63,8 @@ void Unit::newTurn(){
 	guard_on = false;
 }
 
+
+/////////////////////////////////////////////////////////////////////////////////////
 bool Unit::isDead(){
 	if(hp <= 0) return true;
 	else return false;
@@ -98,10 +99,7 @@ int Unit::heal(){
 	}
 	else return MyHeal;
 }
-
-int Unit::showhp(){
-	return hp;
-}
+/////////////////////////////////////////////////////////////////////////////////////
 
 void drawScene(char p_action,int p,char m_action,int m){
 	cout << "                                                       \n";
